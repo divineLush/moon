@@ -1,7 +1,6 @@
 const args = () => {
   const res = {}
   const [executer, file, ...rest] = process.argv
-  console.log(process.argv)
 
   rest.forEach((value, index, array) => {
     if (value.charAt(0) !== '-') {

@@ -1,22 +1,21 @@
 #!/usr/bin/node
 import { args } from './helpers/args.js'
 import { error, success, help } from './services/log.service.js'
+import { save } from './services/storage.service.js'
 
-(() => {
-  const arg = args()
+(async () => {
+  const ar = args()
 
-  error('err')
-  success('succ')
-
-  if (arg.h) {
+  if (ar.h) {
     help()
   }
 
-  if (arg.s) {
+  if (ar.s) {
     // save city
   }
 
-  if (arg.t) {
+  if (ar.t) {
     // save token
+    await save('token', ar.t)
   }
 })()
