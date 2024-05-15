@@ -1,12 +1,15 @@
 #!/usr/bin/node
 import { args } from './helpers/args.js'
+import { error, success, help } from './services/log.service.js'
 
 (() => {
-  console.log('init')
   const arg = args()
 
+  error('err')
+  success('succ')
+
   if (arg.h) {
-    // render help
+    help()
   }
 
   if (arg.s) {
@@ -16,5 +19,4 @@ import { args } from './helpers/args.js'
   if (arg.t) {
     // save token
   }
-  console.log(args())
 })()
