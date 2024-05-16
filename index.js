@@ -2,6 +2,7 @@
 import { args } from './helpers/args.js'
 import { error, success, help } from './services/log.service.js'
 import { save } from './services/storage.service.js'
+import { moon } from './services/api.service.js'
 
 (async () => {
   const ar = args()
@@ -12,10 +13,11 @@ import { save } from './services/storage.service.js'
 
   if (ar.s) {
     // save city
+    moon(ar.s)
   }
 
   if (ar.t) {
     // save token
-    await save('token', ar.t)
+    await save('apikey', ar.t)
   }
 })()
