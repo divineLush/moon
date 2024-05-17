@@ -7,17 +7,17 @@ import { moon } from './services/api.service.js'
 (async () => {
   const ar = args()
 
-  if (ar.h || (!ar.s && !ar.t)) {
+  if (ar.help || (!ar.city && !ar.key)) {
     help()
   }
 
-  if (ar.s) {
-    // save city
-    moon(ar.s)
+  if (ar.key) {
+    // save api key
+    await save('apikey', ar.key)
   }
 
-  if (ar.t) {
-    // save token
-    await save('apikey', ar.t)
+  if (ar.city) {
+    // save city
+    moon(ar.city)
   }
 })()

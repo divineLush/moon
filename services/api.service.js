@@ -31,14 +31,18 @@ export const moon = async (city) => {
       })
 
       res.on('end', () => {
-        success('there you go...')
 
-        const { astro } = data?.astronomy
-        if (astro) {
-          info('RISE', astro.moonrise)
-          info('SET', astro.moonset)
-          info('PHASE', astro.moon_phase)
-          info('ILLUMINATION', astro.moon_illumination)
+        try {
+          const { astro } = data.astronomy
+          if (astro) {
+            success('there you go...')
+            info('RISE', astro.moonrise)
+            info('SET', astro.moonset)
+            info('PHASE', astro.moon_phase)
+            info('ILLUMINATION', astro.moon_illumination)
+          }
+        } catch (e) {
+          error(e.message)
         }
       })
 

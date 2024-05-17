@@ -1,26 +1,20 @@
 const args = () => {
-  const res = {}
   const [executer, file, ...rest] = process.argv
 
-  rest.forEach((value, index, array) => {
-    if (value.charAt(0) !== '-') {
-      return
+  const getArgValue = (fullArgName, shortArgName) => {
+    const idx = rest.findIndex(ar => ar === fullArgName || ar === shortArgName)
+    if (idx === -1) {
+      return null
     }
 
-    if (index === array.length - 1) {
-      res[value.substring(1)] = true
-      return
-    }
+    return rest[idx + 1]
+  }
 
-    if (array[index + 1].charAt(0) !== '-') {
-      res[value.substring(1)] = array[index + 1]
-      return
-    }
+  const city = getArgValue('--city', '-c')
+  const key = getArgValue('--key', '-k')
+  const help = rest.find(ar => ar === '--help' || ar === '-h')
 
-    res[value.substring(1)] = true
-  })
-
-  return res
+  return { city, key, help }
 }
 
 export { args }
