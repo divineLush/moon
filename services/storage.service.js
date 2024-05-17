@@ -5,7 +5,7 @@ import { success, error } from './log.service.js'
 
 const path = join(homedir(), './.config/weather/data.json')
 
-const get = async (key) => {
+export const get = async (key) => {
   if (await exists(path)) {
     const file = await promises.readFile(path)
     const data = JSON.parse(file)
@@ -16,7 +16,7 @@ const get = async (key) => {
   return null
 }
 
-const save = async (key, value) => {
+export const save = async (key, value) => {
   try {
     const parsedFile = JSON.parse(await promises.readFile(path, { encoding: 'utf8' }))
     parsedFile[key] = value
@@ -43,5 +43,3 @@ const exists = async (filepath) => {
     return false
   }
 }
-
-export { get, save }

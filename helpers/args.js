@@ -1,4 +1,4 @@
-const args = () => {
+export const args = () => {
   const [executer, file, ...rest] = process.argv
 
   const getArgValue = (fullArgName, shortArgName) => {
@@ -16,5 +16,3 @@ const args = () => {
 
   return { city, key, help }
 }
-
-export { args }
