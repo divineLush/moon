@@ -10,6 +10,6 @@ const info = (key, value) =>
   console.log(`${chalk.blue(key)} ${value}`)
 
 const help = () =>
-  console.log(`${chalk.black.bgCyan('HELP')}\n-s [CITY] set city\n-h help\n-t [API_KEY] save token`)
+  console.log(`${chalk.black.bgCyan('HELP')}\n-c [CITY] set city\n-h help\n-k [API_KEY] save api key`)
 
 export { error, success, info, help }
